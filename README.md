@@ -3,6 +3,7 @@ Headache-free datetime in python - mini module
 
 
 Datetime mini lib ----------------------------------------------------------
+
 (c) 2022 BCT
 
 GOAL: Headache free datetime & time arithmetic
@@ -16,8 +17,8 @@ PURPOSE:
 -> NOTE: avoid mixing with other datetime: datetime.datetime or np.datetime64 (parse all)
 
 KEY FUNCTIONS:
-    - dt_parse          parse any datetime & strings; takes in a df, np, string, datetime, etc
-    - dt_set_tz         convert time to different timezone
-    - dt_now            current time
-    - dt_str            returns shortest string (e.g. removes seconds if 0); option to return iso
-    - dt_delta_to_res   cast timedelta into float
+- dt_parse          parse any datetime & strings; takes in a df, np, string, datetime, etc
+- dt_set_tz         convert time to different timezone
+- dt_now            current time
+- dt_str            returns shortest string (e.g. removes seconds if 0); option to return iso
+- dt_delta_to_res   cast timedelta into float

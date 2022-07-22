@@ -2,7 +2,7 @@
 Headache-free datetime in python - mini module
 
 
-""" Datetime mini lib ----------------------------------------------------------
+Datetime mini lib ----------------------------------------------------------
 (c) 2022 BCT
 
 GOAL: Headache free datetime & time arithmetic

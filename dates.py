@@ -92,13 +92,14 @@ def dt_local_tz() -> str:
     # LOCAL_TIMEZONE = datetime.now(timezone.utc).astimezone().tzinfo
     return str(get_localzone())
 
-def dt_now(force_tz="localtz", tz=None) -> pd.Timestamp:
+def dt_now(force_tz="localtz", tz=None, clear_tz=False) -> pd.Timestamp:
     """current local date/time w/ force_tz attached
     force_tz = "localtz"  -> append local tz
-    force_tz = None       -> no tz appended
+    force_tz = None       -> local time, no tz appended
     force_tz = other      -> SET (force) to other tz (keep time as is, no conversion)
     tz       = convert to <tz> IF NOT NONE
-    
+    clear_tz = True       -> override all params, remove tz and convert to UTC
+
     Sample output (not for doctest):
     >>>> [dt.dt_now(),                      # use local tz, and use machine time
           dt.dt_now(force_tz="UTC"),        # force UTC tz, with machine time
@@ -114,6 +115,8 @@ def dt_now(force_tz="localtz", tz=None) -> pd.Timestamp:
         d = d.tz_localize(force_tz)#dt_set_tz(d, tz)
     if tz is not None:
         d = dt_convert_tz(d, tz)
+    if clear_tz:
+        d = dt_clear_tz(d)
     return d
 
 def dt_now_iswithin(min_time, max_time) -> bool:
